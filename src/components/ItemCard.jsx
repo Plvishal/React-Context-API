@@ -4,9 +4,10 @@ import { useContext } from 'react';
 import { itemContext } from '../itemContext';
 
 function ItemCard({ name, price }) {
-  let { total, setTotal } = useContext(itemContext); // inline  object destructuring
+  let { total, setTotal, item, setItem } = useContext(itemContext); // inline  object destructuring
   const handleAdd = () => {
     setTotal(total + price);
+    setItem(item + 1);
   };
 
   const handleRemove = () => {
@@ -14,6 +15,7 @@ function ItemCard({ name, price }) {
       return;
     }
     setTotal((preState) => preState - price);
+    setItem(item - 1);
   };
 
   return (
