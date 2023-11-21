@@ -10,7 +10,10 @@ function ItemCard({ name, price }) {
   };
 
   const handleRemove = () => {
-    setTotal(total - price);
+    if (total <= 0) {
+      return;
+    }
+    setTotal((preState) => preState - price);
   };
 
   return (
