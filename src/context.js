@@ -1,2 +1,2 @@
 import { createContext } from 'react';
-const colorContext = createContext();
+export const colorContext = createContext();
