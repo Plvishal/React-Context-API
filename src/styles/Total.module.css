@@ -1,8 +1,17 @@
 .container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: lightcoral;
-    color: var(--primary-color);
-    padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lightcoral;
+  color: var(--primary-color);
+  padding: 1rem;
+}
+.buttonWrapper {
+  padding: 3px;
+}
+.btn {
+  box-shadow: 0px 0px 3px;
+  border-radius: 4px;
+  background-color: brown;
+  color: wheat;
 }
