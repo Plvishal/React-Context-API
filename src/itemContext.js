@@ -23,7 +23,7 @@ function CustomItemContext({ children }) {
     setItem(item - 1);
   };
   return (
-    <itemContext.Provider value={{ total, setTotal, item, setItem ,handleAdd,handleRemove}}>
+    <itemContext.Provider value={{ total, item, handleAdd, handleRemove }}>
       {children}
     </itemContext.Provider>
   );
