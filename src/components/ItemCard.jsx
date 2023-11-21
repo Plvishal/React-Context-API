@@ -1,10 +1,17 @@
-import React from "react";
-import styles from "../styles/ItemCard.module.css";
+import React from 'react';
+import styles from '../styles/ItemCard.module.css';
+import { useContext } from 'react';
+import { itemContext } from '../itemContext';
 
 function ItemCard({ name, price }) {
-  const handleAdd = () => {};
+  let { total, setTotal } = useContext(itemContext); // inline  object destructuring
+  const handleAdd = () => {
+    setTotal(total + price);
+  };
 
-  const handleRemove = () => {};
+  const handleRemove = () => {
+    setTotal(total - price);
+  };
 
   return (
     <div className={styles.itemCard}>
