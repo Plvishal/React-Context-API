@@ -1,7 +1,11 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 import { useState } from 'react';
 
-export const itemContext = createContext();
+const itemContext = createContext();
+function useValue() {
+  const value = useContext(itemContext);
+  return value;
+}
 
 function CustomItemContext({ children }) {
   const [total, setTotal] = useState(0);
@@ -12,5 +16,5 @@ function CustomItemContext({ children }) {
     </itemContext.Provider>
   );
 }
-
+export { itemContext, useValue };
 export default CustomItemContext;
