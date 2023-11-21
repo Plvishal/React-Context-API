@@ -2,11 +2,10 @@ import React from 'react';
 import styles from '../styles/ItemCard.module.css';
 import { useContext } from 'react';
 import { itemContext } from '../itemContext';
-import { totalContext } from '../totalContext';
 
 function ItemCard({ name, price }) {
-  let { item, setItem } = useContext(itemContext); // inline  object destructuring
-  let { total, setTotal } = useContext(totalContext);
+  let { item, setItem, total, setTotal } = useContext(itemContext); // inline  object destructuring
+
   const handleAdd = () => {
     setTotal(total + price);
     setItem(item + 1);
