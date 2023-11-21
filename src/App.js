@@ -1,10 +1,13 @@
 import './App.css';
-import ParentComponent from './components/ParentComponent';
+import Navbar from './components/Navbar';
+import Items from './components/Items';
 
 function App() {
   return (
     <div className="App">
-      <ParentComponent />
+      <h2>Shopping Cart</h2>
+      <Navbar />
+      <Items />
     </div>
   );
 }
