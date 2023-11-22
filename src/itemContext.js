@@ -35,7 +35,7 @@ function CustomItemContext({ children }) {
     <itemContext.Provider
       value={{ total, item, handleAdd, handleRemove, handleReset, toggle }}
     >
-      {showCart && <CartModal />}
+      {showCart && <CartModal toggle={toggle} />}
       {children}
     </itemContext.Provider>
   );
