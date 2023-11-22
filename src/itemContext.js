@@ -12,8 +12,20 @@ function CustomItemContext({ children }) {
   const [total, setTotal] = useState(0);
   const [item, setItem] = useState(0);
   const [showCart, setShowCart] = useState(false);
-  const handleAdd = (price) => {
-    setTotal(total + price);
+  const [cart, setCart] = useState([]);
+  const handleAdd = (prod) => {
+    // setTotal(total + price);
+    // setItem(item + 1);
+    const index = cart.findIndex((item) => item.id === prod.id);
+    if (index === -1) {
+      //here -1 means item is not present in array
+      setCart([...cart, { ...prod, qty: 1 }]);
+      setTotal(total + prod.price);
+    } else {
+      cart[index].qty++;
+      setCart(cart);
+      setTotal(total + cart[index].price);
+    }
     setItem(item + 1);
   };
 
@@ -33,7 +45,15 @@ function CustomItemContext({ children }) {
   };
   return (
     <itemContext.Provider
-      value={{ total, item, handleAdd, handleRemove, handleReset, toggle }}
+      value={{
+        total,
+        item,
+        handleAdd,
+        handleRemove,
+        handleReset,
+        toggle,
+        cart,
+      }}
     >
       {showCart && <CartModal toggle={toggle} />}
       {children}
